@@ -15,6 +15,7 @@ mongoose
 const Schema = mongoose.Schema;
 
 const recipesSchema = new Schema({
+  recipeName: {type: String, required: true},
   ingredientList: {
     one: String,
     two: String,

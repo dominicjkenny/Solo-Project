@@ -3,9 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {env} = require('process');
 
 module.exports = {
-  entry: {
-    index: './client/index.js'
-  },
+  entry: path.resolve(__dirname, ),
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
@@ -43,12 +41,11 @@ module.exports = {
   ],
   devServer: {
     static: {
-        directory: path.resolve(__dirname),
+        directory: path.resolve(__dirname, 'build'),
     },
     compress: true,
-    port: 8080,
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/recipes': 'http://localhost:3000'
     },
   }
 }
