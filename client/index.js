@@ -6,14 +6,4 @@ import store from './store';
 
 const root = createRoot(document.getElementById('root'));
 
-// if (root) {
-//   console.log('Root Created');
-// } else if (!root) {
-//   console.log('Root Not Created')
-// }
-
-root.render(
-  // <Provider store={store}>
-    <App />
-  /* </Provider> */
-);
+root.render(<App />);
