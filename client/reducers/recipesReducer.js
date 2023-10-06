@@ -1,7 +1,6 @@
 import * as types from '../types/actionTypes';
 
 const initialState = {
-  totalRecipes: 0,
   recipeList: []
 };
 

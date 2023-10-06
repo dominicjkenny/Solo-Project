@@ -5,7 +5,7 @@ const recipesController = require('./recipesController.js')
 const PORT = 3000;
 const app = express();
 
-app.use(express.static('client'));
+app.use(express.static('build'));
 app.use(express.json());
 
 app.get('/recipes', recipesController.getRecipes, (req, res) => {
@@ -17,6 +17,11 @@ app.post('/recipes', recipesController.addRecipes, (req, res) => {
   console.log('Added recipe')
   return res.status(200).json('Successfully added recipe')
 });
+
+app.delete('/recipes/:id', recipesController.deleteRecipe, (req, res) => {
+  console.log('Deleted recipe')
+  return res.status(200).json(`Successfully deleted ${res.locals.numDeleted} recipe`);
+})
 
 app.use('*', (req, res) => {
   return res.sendStatus(404);

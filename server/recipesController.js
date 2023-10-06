@@ -22,4 +22,18 @@ recipesController.addRecipes = async (req, res, next) => {
   return next();
 }
 
+recipesController.deleteRecipe = async (req, res, next) => {
+  console.log('Entered recipesController.deleteRecipe');
+  const recipeName = req.params.id;
+  console.log(recipeName)
+  const deletedCount = await models.Recipes.deleteOne({ eyedee: recipeName });
+  console.log(deletedCount)
+  if (deletedCount === 0) return next({
+    log: 'Express error in recipesController.deleteRecipe',
+    message: { err: 'Files not found'}
+  })
+  res.locals.numDeleted = deletedCount;
+  return next();
+}
+
 module.exports = recipesController;

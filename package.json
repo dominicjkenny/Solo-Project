@@ -4,13 +4,14 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
+    "start": "node server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development concurrently \"node server/server.js\" \"webpack-dev-server --open\"",
-    "start": "concurrently \"node server/server.js\" \"node webpack\""
+    "dev": "NODE_ENV=development concurrently \"node server/server.js\" \"webpack serve --open\""
   },
   "author": "dominicjkenny",
   "license": "",
   "dependencies": {
+    "axios": "^1.5.1",
     "express": "^4.18.2",
     "node": "^20.7.0",
     "node-fetch": "^3.3.2",

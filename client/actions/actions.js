@@ -1,3 +1,6 @@
+import axios from 'axios';
+import * as types from '../types/actionTypes'
+
 export const addRecipe = event => (dispatch) => {
   fetch.post('/recipes', {
    body: ''
@@ -6,7 +9,7 @@ export const addRecipe = event => (dispatch) => {
 };
 
 export const loadRecipes = () => (dispatch) => {
-  fetch.get('/recipes')
+  axios.get('http://localhost:3000/recipes')
     .then((data) => data.json())
     .then((data) => {
       dispatch({

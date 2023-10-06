@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {env} = require('process');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'client', 'index.js'),
+  entry: path.resolve(__dirname, 'client'),
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
@@ -22,8 +22,8 @@ module.exports = {
         }
       },
       {
-        test: /\.s?css/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        test: /\.css/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -39,6 +39,7 @@ module.exports = {
       directory: path.resolve(__dirname, 'build'),
     },
     compress: true,
+    port: 8080,
     proxy: {
       '/recipes': 'http://localhost:3000'
     },
